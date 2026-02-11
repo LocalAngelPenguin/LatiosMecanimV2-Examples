@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class PlayerAuthoring : MonoBehaviour
 {
-    public float moveSpeed = 6f;
-    public float jumpImpulse = 5f;
-    public float mouseSensitivity = 2f;
-     public GameObject cameraTarget;
+    public float moveSpeed = 3f;
+    public float jumpImpulse = 4.5f;
+    public float mouseSensitivity = 0.0015f;
+    public GameObject cameraTarget;
 
     class Baker : Baker<PlayerAuthoring>
     {
@@ -32,3 +32,4 @@ public class PlayerAuthoring : MonoBehaviour
         }
     }
 }
+
