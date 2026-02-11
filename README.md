@@ -1,5 +1,5 @@
 # LatiosMecanimV2-Examples
-A repository for all assets used within the *link* video.
+A repository for all assets used within the video.
 
 # Contains:
 - "AnimationScaleFixer" one of the two fixes for scaling issues.
