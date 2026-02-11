@@ -3,7 +3,6 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 using Unity.Physics;
-using Latios.Mecanim;
 
 public struct PlayerTag : IComponentData { }
 public struct PlayerMoveData : IComponentData
@@ -45,33 +44,7 @@ public partial struct PlayerMovementSystem : ISystem
             {
                 velocity.ValueRW.Linear.y += moveData.ValueRO.JumpImpulse;
             }
-
-            float3 horizontal = velocity.ValueRO.Linear;
-            horizontal.y = 0;
-            float speed = math.length(horizontal);
-
-            if (!SystemAPI.HasComponent<MecanimController>(ent)) continue;
-
-            var anim = SystemAPI.GetAspect<MecanimAspect>(ent);
-
-            anim.SetFloatParameter("speed", speed);
-            if (speed > 0.1f)
-            {
-                if(!moveData.ValueRO.Moving)
-                {
-                    moveData.ValueRW.Moving = true;
-                    anim.StartInertialBlend(0.4f);
-                }
-            }
-            else
-            {
-                if (moveData.ValueRO.Moving)
-                {
-                    moveData.ValueRW.Moving = false;
-                    anim.StartInertialBlend(0.4f);
-                }
-            }
-
         }
     }
 }
+
